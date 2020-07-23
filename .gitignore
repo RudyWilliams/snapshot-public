@@ -1,0 +1,11 @@
+*~$?*.xlsx
+.vscode/
+.pytest_cache/
+venv/
+__pycache__/
+tests/__pycache__/
+
+#build stuff
+build/
+*.egg-info
+dist/

@@ -1,0 +1,169 @@
+paths:
+  production:
+    root: P:LACE/PATH/HERE # place path to real data here
+  dev:
+    root: P:LACE/POTENTIALLY/DIFFERENT/PATH/HERE # place path to fake/smaller data for development purposes
+
+expected_fy_start:
+  year: 2019
+  month: 7
+  day: 1
+
+month_map:
+  7:
+    name: July
+    abbrv: JUL
+    num: '07'
+  8:
+    name: August
+    abbrv: AUG
+    num: '08'
+  9:
+    name: September
+    abbrv: SEP
+    num: '09'
+  10:
+    name: October
+    abbrv: OCT
+    num: '10'
+  11:
+    name: November
+    abbrv: NOV
+    num: '11'
+  12:
+    name: December
+    abbrv: DEC
+    num: '12'
+  1:
+    name: January
+    abbrv: JAN
+    num: '01'
+  2:
+    name: February
+    abbrv: FEB
+    num: '02'
+  3:
+    name: March
+    abbrv: MAR
+    num: '03'
+  4:
+    name: April
+    abbrv: APR
+    num: '04'
+  5:
+    name: May
+    abbrv: MAY
+    num: '05'
+  6:
+    name: June
+    abbrv: JUN
+    num: '06'
+
+
+network_data_presets:
+  fn_ylog: # place log filename here
+  fn_youth: # place youth filename here
+  fn_a_programs: # place programs filename here
+  intake_dt_column: # place intake column name here
+  exit_dt_column: # place exit column name here
+  birth_dt_column: # place birth date column here
+  youth_id_column: # place youth id column name here
+  gender_column: # place gender column name here
+  race_column: # place race column name here
+  ethnic_column: # place ethnic column name here
+  program_name_column:  # place program column name here
+  program_id_column: # place program id column name here
+  shelter_program_names: { # place internal shelter programs here
+    'SHELTER 1',
+    'SHELTER 2',
+    'SHELTER 3',
+  }
+  nonres_program_names: { # place internal nonres programs here
+    'NONRES'
+  }
+  snap_program_names: { # place internal snap programs here
+    'SNAP'
+  }
+  codes:
+    #contains the mappings from say race/ethnicity code to race/ethnicity
+    race:
+      known: [A, B, C, D, E, F, G, H]
+      # other keys may be mapping from known code to race such as below
+      H: Black
+      C: White
+      # all others will be considered multi/other
+      ## all not in known list will be dropped from race demo
+
+    ethnicity:
+      # note the switched order for this section
+      Hispanic: D
+      # all others will be considered Non-Hispanic
+
+shelter:
+  age_bins: # place age bins such as below (note: the intervals are actually half open such as (14, 17] but they must be written as done below)
+    - [0,14] 
+    - [14,17]
+    - [17,100]
+
+nonres: 
+  age_bins: # place age bins below
+    - [0, 11] 
+    - [11, 14]
+    - [14, 17]
+    - [17, 100]
+  contract_requirements: # place the contract requirements below
+    fy_intakes: # place number here 
+
+snap:
+  age_bins: # place age bins below
+    - [0, 11]
+    - [11, 14] 
+    - [14, 17]
+    - [17, 100]
+  contract_requirements: # place contract requirements below
+    sis_sessions: # place number here
+    num_sessions: # place number here
+    num_fidelity_reviews: # place number here
+
+tlp:
+  filename: # place tlp data filename here
+  skiprows: # place number here (indicates to skip the first row when reading (they put a note at the top of the roster))
+  parse_dates: # place date columns below
+    - # column1
+    - # column2
+    - # etc
+  short_stay_delta: '7 days' # example of how to specify short stay
+  presets:
+    intake_dt_column: # place intake column name here
+    exit_dt_column: # place exit column name here
+    birth_dt_column: # place birth date column name here
+    gender_column: # place gender column name here
+    tlp_subset_column: # place column name of the column that stores the subset
+    tlp_subsets: # place list of different subsets here e.g. [Prog1, Prog2]
+    race_column: # place race column name here
+  age_bins: # place age bins below
+    - [17, 19] 
+    - [19, 20]
+    - [20, 100]
+  contract_requirements: Null
+  
+
+jac:
+  filename: # place jac data filename here
+  parse_dates: # place date columns below
+    - # column 1
+    - # column 2
+    - # etc
+  presets:
+    served_dt_column: # place served date column name here
+    birth_dt_column: # place birth date column name here
+    id_column: # place id column name here
+    referral_source_column: # place source column name here
+    gender_column: # place gender column name here
+    race_column: # place race column name here
+    pre_calc_age_column: # place age column name here (set to Null if wanting to calculate)
+  age_bins: # place age bins below
+    - [5, 14]
+    - [14, 17]
+    - [17, 100]
+
